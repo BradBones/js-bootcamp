@@ -1,4 +1,4 @@
-let fahrenheit = 32; // 0c - 273.15k
+let fahrenheit = 50; // 0c - 273.15k
 
 // calculate cesius and store in celsius variable
 let celsius = (fahrenheit - 32) / 1.8;
