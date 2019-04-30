@@ -26,3 +26,5 @@ let tipCalculator = function (total, tipPercent = .15) {
 
 let totalTip = tipCalculator(38.40, .18);
 console.log(`Total with tip: $${totalTip}`);
+
+//Minor change
