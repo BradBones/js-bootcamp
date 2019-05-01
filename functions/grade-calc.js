@@ -2,8 +2,8 @@
 // 15/20 (75%) -> You got a C (75%)!
 // A 90-100, B 80 - 89, C 70-79, D 60-69, F 0-59
 
-let gradeCalc = function (score, maxScore) {
-    let percentage = (score / maxScore) * 100;
+const gradeCalc = function (score, maxScore) {
+    const percentage = (score / maxScore) * 100;
     let grade = '';
 
     if (percentage >= 90) {
@@ -21,5 +21,5 @@ let gradeCalc = function (score, maxScore) {
     return `You got a ${grade} (${percentage}%)`;
 }
 
-let result = gradeCalc(17, 20);
+const result = gradeCalc(17, 20);
 console.log(result);
