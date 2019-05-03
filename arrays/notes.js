@@ -40,3 +40,6 @@ for (let i = 0; i <= 2; i++ ) {
 for (let count = notes.length -1; count >= 0; count--) {
     console.log(notes[count]);
 }
+
+
+console.log(notes.indexOf('Something new'));
