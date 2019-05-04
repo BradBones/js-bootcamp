@@ -15,11 +15,9 @@ const todos = [{
     completed: true
 }];
 
-// 1. Convert array to array of objects -> text, completed property: true/false
-// 2. Function to remove a todo by text value
 
 const deleteTodo = function (list, searchRequest) {
-    const toBeDeleted = list.findIndex(function (searchedItem, i) {
+    const toBeDeleted = list.findIndex(function (searchedItem) {
         return searchedItem.todo.toLowerCase() === searchRequest.toLowerCase();
     });
     if (toBeDeleted > -1) {
@@ -28,12 +26,21 @@ const deleteTodo = function (list, searchRequest) {
     
 }
 
-console.log(todos);
-deleteTodo(todos, 'cut Claire\'s hair');
-console.log(todos);
-// console.log(`Pre splice | ${todos.todo}`);
+// console.log(todos);
+// deleteTodo(todos, 'cut Claire\'s hair');
+// console.log(todos);
 
-// console.log(`Post splice | ${todos.todo}`);
+const getThingsTodo = function (arr) {
+    return arr.filter(function (arrItem) {
+        return !arrItem.completed;
+    }); 
+}
+
+
+
+
+
+console.log(getThingsTodo(todos));
 
 
 

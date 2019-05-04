@@ -16,6 +16,18 @@ const findNote = function (arr, searchTerm) {
     });
 };
 
+// Filter method - creates a new array without mutating the original
+const findNotes = function (arr, searchTerm) {
+    return arr.filter(function (arrItem) {
+        const isTitleMatch = arrItem.title.toLowerCase().includes(searchTerm.toLowerCase());
+        const isBodyMatch = arrItem.body.toLowerCase().includes(searchTerm.toLowerCase());
+        return isTitleMatch || isBodyMatch;
+    });
+}
+
+console.log(findNotes(notes, 'eat'));
+
+
 // // .findIndex method
 // const findNote = function (arr, searchTerm) {
 //     const index = arr.findIndex(function (individualNote, i) {
@@ -25,7 +37,7 @@ const findNote = function (arr, searchTerm) {
 // };
 
 const noteFound = findNote(notes, 'lifestyle improvments');
-console.log(noteFound);
+//console.log(noteFound);
 
 
 
