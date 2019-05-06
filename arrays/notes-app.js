@@ -7,7 +7,26 @@ const notes = [{
 }, {
     title: 'Office modification',
     body: 'Get a new chair.'
-}]
+}];
+
+
+// Sort method
+const sortNotes = function (notes) {
+    notes.sort(function (a, b) {
+        if (a.title.toLowerCase() < b.title.toLowerCase()) {
+            return -1;
+        } else if (b.title.toLowerCase() < a.title.toLowerCase()) {
+            return 1;
+        } else {
+            return 0;
+        };
+    });
+}
+
+sortNotes(notes);
+console.log(notes);
+
+
 
 // .find method
 const findNote = function (arr, searchTerm) {
@@ -15,6 +34,8 @@ const findNote = function (arr, searchTerm) {
         return individualNote.title.toLowerCase() === searchTerm.toLowerCase();
     });
 };
+
+
 
 // Filter method - creates a new array without mutating the original
 const findNotes = function (arr, searchTerm) {
@@ -25,7 +46,7 @@ const findNotes = function (arr, searchTerm) {
     });
 }
 
-console.log(findNotes(notes, 'eat'));
+//console.log(findNotes(notes, 'eat'));
 
 
 // // .findIndex method
@@ -40,8 +61,6 @@ const noteFound = findNote(notes, 'lifestyle improvments');
 //console.log(noteFound);
 
 
-
-
 // // findIndex method
 // const index = notes.findIndex(function (note, index) {
 //     console.log(note);
@@ -49,3 +68,5 @@ const noteFound = findNote(notes, 'lifestyle improvments');
 // });
 
 // console.log(index);
+
+

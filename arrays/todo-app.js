@@ -36,11 +36,33 @@ const getThingsTodo = function (arr) {
     }); 
 }
 
+//console.log(getThingsTodo(todos));
 
+const sortTodos = function (arr) {
+    return arr.sort(function (a, b) {
+        if (!a.completed && b.completed) {
+            return -1;
+        } else if (!b.completed && a.completed) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+}
 
+// Alt method?
+// const sortTodos = function (arr) {
+//     return arr.sort(function (a, b) {
+//         if (a.completed > b.completed) {
+//             return 1;
+//         } else {
+//             return -1;
+//         }
+//     });
+// }
 
-
-console.log(getThingsTodo(todos));
+sortTodos(todos);
+console.log(todos);
 
 
 
