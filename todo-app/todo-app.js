@@ -36,8 +36,13 @@ todos.forEach(element => {
 });
 
 // Listen for new todo creation
-document.querySelector('button').addEventListener('click', function (e){
+document.querySelector('#add-todo').addEventListener('click', function (e){
     console.log('button clicked')
+});
+
+// Listen for todo text change
+document.querySelector('#new-todo-text').addEventListener('input', function (e) {
+    console.log(e.target.value);
 });
 
 

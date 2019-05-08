@@ -9,6 +9,18 @@ const notes = [{
     body: 'Get a new chair.'
 }];
 
-document.querySelector('button').addEventListener('click', function (e) {
+// Button handlers
+document.querySelector('#create-note').addEventListener('click', function (e) {
     e.target.textContent = 'The button was clicked';
+});
+
+document.querySelector('#remove-all').addEventListener('click', function (e) {
+    document.querySelectorAll('.notes').forEach(function (note) {
+        note.remove();
+    });
+});
+
+// Search input field
+document.querySelector('#search-text').addEventListener('input', function (e) {
+    console.log(e.target.value);
 });
