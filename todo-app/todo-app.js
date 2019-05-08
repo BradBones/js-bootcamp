@@ -35,8 +35,10 @@ todos.forEach(element => {
     document.querySelector('body').appendChild(showPendingTodos);
 });
 
-
-
+// Listen for new todo creation
+document.querySelector('button').addEventListener('click', function (e){
+    console.log('button clicked')
+});
 
 
 
@@ -54,3 +56,5 @@ todos.forEach(element => {
 //         paragraph.remove();
 //     }
 // });
+
+
