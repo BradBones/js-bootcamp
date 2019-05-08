@@ -8,11 +8,13 @@
 </head>
 <body>
     <h1>Todos</h1>
-    <input id="new-todo-text" type="text" placeholder="Type your todo here">
-    <button id="add-todo">Add Todo</button>
     <input id="search-text" type="text" placeholder="Search Todos">
     <div id="pending-todos"><!-- "YOU HAVE X TODOS LEFT" --></div>
     <div id="todos"><!-- TODOS RENDERED HERE --></div>
+    <form id="new-todo">
+        <input type="text" placeholder="Type new todo" name="newTodo">
+        <button>Add todo</button>
+    </form>
 
     <script src="todo-app.js"></script>
 </body>

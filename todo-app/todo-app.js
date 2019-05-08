@@ -51,19 +51,24 @@ const renderTodos = function (todos, filters) {
 renderTodos(todos, filters);
 
 
-// Listen for new todo creation
-document.querySelector('#add-todo').addEventListener('click', function (e){
-    console.log('button clicked')
-});
 
-// Listen for todo text change
-document.querySelector('#new-todo-text').addEventListener('input', function (e) {
-    console.log(e.target.value);
-});
 
+// Search feature event handler
 document.querySelector('#search-text').addEventListener('input', function (e) {
     filters.searchText = e.target.value;
     renderTodos(todos, filters);
 });
 
+// Add todo feature event handler
+document.querySelector('#new-todo').addEventListener('submit', function (e) {
+    e.preventDefault();
+    //console.log(e.target.elements.newTodo.value);
+    todos.push({
+        // get newTodo value from html field name=""
+        todo: e.target.elements.newTodo.value,
+        completed: false
+    })
+    renderTodos(todos, filters);
+    e.target.elements.newTodo.value = '';
+});
 
