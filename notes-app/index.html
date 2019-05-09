@@ -12,12 +12,14 @@
     <label>
         <input id="search-text" type="text" placeholder="Search Notes">
     </label>
+    <select id="filter-by">
+        <option value="byEdited">Sort by last edited</option>
+        <option value="byCreated">Sort by recently created</option>
+        <option value="byAlphabet">Sort alphabetically</option>
+    </select>
     
     <div id="notes"><!-- Rendered notes --></div>
     <button id="create-note">Create Note</button>
-    <label>
-        <input id="for-fun" type="checkbox"> Check me for fun!
-    </label>
 
 
     <script src="notes-app.js"></script>
