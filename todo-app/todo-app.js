@@ -17,14 +17,20 @@ const todos = [{
 
 
 const filters = {
-    searchText: ''
+    searchText: '',
+    hideBoxChecked: false
 };
 
 
 const renderTodos = function (todos, filters) {
     const filteredTodos = todos.filter(function (item) {
-        return item.todo.toLowerCase().includes(filters.searchText.toLowerCase());
+        const searchTextMatch = item.todo.toLowerCase().includes(filters.searchText.toLowerCase());
+        const hideCompleteMatch = !filters.hideBoxChecked || !item.completed;
+
+        return searchTextMatch && hideCompleteMatch;
     })
+
+
 
     // Filter completed todos and return the objects in a new array
     const incompleteTodos = filteredTodos.filter(function (todo) {
@@ -70,5 +76,13 @@ document.querySelector('#new-todo').addEventListener('submit', function (e) {
     })
     renderTodos(todos, filters);
     e.target.elements.newTodo.value = '';
+});
+
+
+// Hide compleated checkbox feature
+document.querySelector('#hide-completed').addEventListener('change', function (e) {
+    //console.log(e.target.checked)
+    filters.hideBoxChecked = e.target.checked
+    renderTodos(todos, filters)     
 });
 
