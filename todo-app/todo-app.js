@@ -1,24 +1,16 @@
-const todos = [{
-    todo: 'Walk the dog', 
-    completed: false
-}, {
-    todo: 'go to the gym',
-    completed: true
-}, {
-    todo: 'cut Claire\'s hair',
-    completed: true
-}, {
-    todo: 'shoot a video',
-    completed: true
-}, {
-    todo: 'pick up cake',
-    completed: false
-}];
-
+let todos = [];
 
 const filters = {
     searchText: '',
     hideBoxChecked: false
+};
+
+// Check for existing saved data
+const todosJSON = localStorage.getItem('todos');
+// Check if any data is in local storage
+if (todosJSON !== null) {
+    // convert string to an object
+    todos = JSON.parse(todosJSON);
 };
 
 
@@ -74,6 +66,7 @@ document.querySelector('#new-todo').addEventListener('submit', function (e) {
         todo: e.target.elements.newTodo.value,
         completed: false
     })
+    localStorage.setItem('todos', JSON.stringify(todos));
     renderTodos(todos, filters);
     e.target.elements.newTodo.value = '';
 });
