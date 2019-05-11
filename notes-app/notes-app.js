@@ -1,37 +1,11 @@
-let notes = [];
+const notes = getSavedNotes();
 
 const filters = {
     searchText: ''
 };
 
-// Check for existing saved data
-const notesJSON = localStorage.getItem('notes');
-
-if (notesJSON !== null) {
-    notes = JSON.parse(notesJSON);
-};
-
-const renderNotes = function (notes, filters) {
-    const filteredNotes = notes.filter(function (note) {
-        return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
-    })
-
-    document.querySelector('#notes').innerHTML = '';
-
-    filteredNotes.forEach(function (note) {
-        const noteEl = document.createElement('p');
-
-        if (note.title.length > 0) {
-            noteEl.textContent = note.title
-        } else {
-            noteEl.textContent = 'Untitled note';
-        };
-
-        document.querySelector('#notes').appendChild(noteEl);
-    })
-};
-
 renderNotes(notes, filters);
+
 
 // Button handlers
 document.querySelector('#create-note').addEventListener('click', function (e) {
@@ -39,9 +13,10 @@ document.querySelector('#create-note').addEventListener('click', function (e) {
         title: '',
         body: ''
     });
-    localStorage.setItem('notes', JSON.stringify(notes));
+    saveNotes(notes);
     renderNotes(notes, filters);
 });
+
 
 // Search input field
 document.querySelector('#search-text').addEventListener('input', function (e) {
@@ -49,6 +24,7 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
     renderNotes(notes, filters);
 });
 
+// Filter search by parameter
 document.querySelector('#filter-by').addEventListener('change', function (e) {
     console.log(e.target.value);
 })
