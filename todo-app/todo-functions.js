@@ -16,6 +16,17 @@ const saveTodos = function () {
     localStorage.setItem('todos', JSON.stringify(todos));
 };
 
+// Remove a todo from the list using the delete button
+const removeTodo = function (id) {
+    const todoIndex = todos.findIndex(function (item) {
+        return item.id === id;
+    });
+
+    if (todoIndex > -1) {
+        todos.splice(todoIndex, 1);
+    };
+};
+
 // Render application todos based on filters
 const renderTodos = function (todos, filters) {
     const filteredTodos = todos.filter(function (item) {
@@ -59,6 +70,12 @@ const generateTodoDOM = function (element) {
     // Setup the remove button
     removeButton.textContent = 'x';
     todoEl.appendChild(removeButton);
+    removeButton.addEventListener('click', function () {
+        removeTodo(element.id);
+        saveTodos(todos);
+        renderTodos(todos, filters);
+    });
+    
 
     return todoEl
 };
