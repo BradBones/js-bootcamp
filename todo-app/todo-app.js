@@ -8,6 +8,7 @@ const filters = {
 renderTodos(todos, filters);
 
 
+
 // Search feature event handler
 document.querySelector('#search-text').addEventListener('input', function (e) {
     filters.searchText = e.target.value;
@@ -19,6 +20,8 @@ document.querySelector('#new-todo').addEventListener('submit', function (e) {
     e.preventDefault();
     //console.log(e.target.elements.newTodo.value);
     todos.push({
+        // Generate unique ID using uuid-plugin.js
+        id: uuidv4(),
         // get newTodo value from html field name=""
         todo: e.target.elements.newTodo.value,
         completed: false
