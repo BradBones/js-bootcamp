@@ -29,7 +29,7 @@ const removeNote = function (id) {
 // Generate the DOM structure for a note
 const generateNoteDOM = function (note) {
     const noteEl = document.createElement('div');
-    const textEl = document.createElement('span'); // Use span as it's an inline element. p isn't
+    const textEl = document.createElement('a'); // Use span as it's an inline element. p isn't
     const button = document.createElement('button');
 
     //Setup the remove note button
@@ -47,7 +47,7 @@ const generateNoteDOM = function (note) {
     } else {
         textEl.textContent = 'Untitled note';
     };
-
+    textEl.setAttribute('href', `/edit.html#${note.id}`);
     noteEl.appendChild(textEl);
 
     return noteEl;
